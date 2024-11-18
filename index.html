@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Invitation</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Thêm EmailJS script vào HTML -->
+
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+  </head>
+  <body>
+    <audio autoplay loop class="background-music">
+        <source src="assets/birthday.mp3" type="audio/mp3">
+    </audio>
+    <div class="home">
+      <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="content">
+        <h1>🎉 You're Invited! 🎂</h1>
+        <button id="open-popup">Join the Celebration</button>
+      </div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzilzwoOwgSloN-muzXZksvMd6Yk4t6NHg7A&s" alt="Celebration Image" class="celebration-image">
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>Choose Your Preferences</h2>
+        <div class="sections">
+          <div class="section">
+            <img
+              src="https://forza.com.vn/wp-content/uploads/2021/07/cach-lam-mi-y-thom-ngon-chuan-vi-tai-nha-6.jpeg"
+              alt="Option 1"
+            />
+            <h3>Đi ăn</h3>
+          </div>
+          <div class="section">
+            <img
+              src="https://down-vn.img.susercontent.com/vn-11134259-7r98o-lwi9900llucb3d"
+              alt="Option 2"
+            />
+            <h3>Xem phim</h3>
+          </div>
+          <div class="section">
+            <img src="https://studiovietnam.com/wp-content/uploads/2023/03/dich-vu-chup-anh-nuoc-uong-06.jpg" alt="Option 3" />
+            <h3>Cafe</h3>
+          </div>
+          <div class="section">
+            <img src="https://via.placeholder.com/150" alt="Option 3" />
+            <h3>Cả 3</h3>
+          </div>
+        </div>
+
+        <!-- Time Picker Section -->
+        <div class="time-picker">
+            <label for="date">Chọn thời gian</label>
+            <input type="date" id="date" name="date">
+            <input type="time" id="time" name="time">
+
+            <br>
+            <button id="confirm-time">Xác nhận</button>
+        </div>
+
+
+      </div>
+    </div>
+
+
+<!-- Popup Cảm ơn -->
+<div id="thank-you-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>Cảm ơn bạn đã chọn!</h2>
+        <img src="https://sohanews.sohacdn.com/160588918557773824/2020/12/6/photo-11-16072634762931166901441.gif" alt="thank-you-gif" class="thank-you-img">
+        <p id="selected-content"></p> <!-- Hiển thị nội dung đã chọn -->
+        <p id="selected-time"></p> <!-- Hiển thị thời gian đã chọn -->
+    </div>
+</div>
+
+
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "iDB9nEKhX0ano3BXT",
+      });
+   })();
+</script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

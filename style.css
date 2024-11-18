@@ -1,0 +1,318 @@
+/* General Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Home Page Styles */
+.home {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffccf9, #ff99c8);
+  overflow: hidden;
+}
+
+.stars,
+.twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.stars {
+  background: url("https://www.transparenttextures.com/patterns/stardust.png")
+    repeat;
+  opacity: 0.5;
+  animation: move-stars 50s linear infinite;
+}
+
+@keyframes move-stars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+.twinkling {
+  background: url("https://www.transparenttextures.com/patterns/twinkle-stars.png")
+    repeat;
+  opacity: 0.6;
+  animation: move-twinkling 100s linear infinite;
+}
+
+@keyframes move-twinkling {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 5000px;
+  }
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  color: white;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.content button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: #ff577f;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.content button:hover {
+  background: #ff1a56;
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    animation: popup-show 0.3s ease;
+    position: relative; /* Để đặt nút tắt bên trong popup-content */
+}
+
+@keyframes popup-show {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+/* Nút tắt nằm trong popup-content */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000;
+}
+
+.sections {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa các phần */
+    justify-content: center; /* Căn giữa các mục */
+    flex-wrap: nowrap; /* Không xuống hàng */
+    margin-top: 20px;
+}
+
+/* Định dạng từng mục */
+.section {
+    width: 150px; /* Kích thước cố định cho từng mục */
+    text-align: center;
+}
+
+/* Đảm bảo thẻ img có kích thước cố định */
+.section img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng khi hover */
+    cursor: pointer; /* Thay đổi cursor khi hover */
+}
+
+.section img:hover {
+    transform: scale(1.05); /* Phóng to khi hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Tăng độ bóng khi hover */
+}
+
+/* Tiêu đề dưới mỗi ảnh */
+.section h3 {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Responsive cho điện thoại (kể cả iPhone từ 11-15) */
+@media (max-width: 768px) {
+    .section {
+        width: calc(33.33% - 10px); /* Chia 3 mục trên mỗi hàng khi màn hình nhỏ */
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        width: calc(100% - 20px); /* Mỗi hàng chỉ hiển thị 1 mục */
+    }
+}
+
+
+/* Phần chọn ngày và giờ */
+.time-picker {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    background: linear-gradient(135deg, #ffccf9, #ff99c8); /* Màu gradient giống màu nền */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: popup-show 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.time-picker label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.time-picker input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #f2a1b1;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 250px;
+    transition: border-color 0.3s ease;
+}
+
+.time-picker input:focus {
+    border-color: #ff577f;
+    outline: none;
+}
+
+.time-picker button {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    background: #ff577f;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.time-picker button:hover {
+    background-color: #ff1a56;
+}
+
+/* Add animation for smooth popup appearance */
+@keyframes popup-show {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
+
+
+/* Thêm hiệu ứng highlight khi chọn thẻ img */
+.section.selected {
+    border: 3px solid black; /* Đường viền nổi bật khi chọn */
+    box-shadow: 0 0 10px rgba(255, 87, 127, 0.5); /* Đổ bóng để nổi bật */
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ffccf9, #ff99c8); /* Màu gradient giống màu nền */
+}
+
+
+
+/* Popup Cảm ơn */
+#thank-you-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#thank-you-popup .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    animation: popup-show 0.3s ease;
+}
+
+#thank-you-popup .popup-content h2 {
+    margin-bottom: 20px;
+}
+
+#thank-you-popup .thank-you-img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    animation: gif-animation 2s infinite alternate;
+}
+
+#thank-you-popup .close-popup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000;
+}
+
+@keyframes popup-show {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes gif-animation {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.celebration-image {
+    display: block; /* Đảm bảo ảnh không bị trôi ra ngoài */
+    margin: 20px auto; /* Căn giữa ảnh và tạo khoảng cách với các phần tử khác */
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng của phần chứa */
+    height: auto; /* Đảm bảo tỷ lệ khung hình của ảnh không bị biến dạng */
+    border-radius: 10px; /* Bo góc ảnh */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng cho ảnh */
+}
+

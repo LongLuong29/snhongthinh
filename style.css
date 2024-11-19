@@ -253,6 +253,9 @@ html {
 
 
 
+
+
+
 /* Popup Cảm ơn */
 #thank-you-popup {
     display: none;
@@ -268,9 +271,11 @@ html {
 }
 
 #thank-you-popup .popup-content {
-    background: #fff;
+    background: #fce4ec;;
     padding: 20px;
-    border-radius: 10px;
+    border: 3px dashed #d81b60; /* Viền đỏ đậm kiểu gạch */
+    border-radius: 10px; /* Bo góc mềm mại */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hiệu ứng nổi */
     width: 90%;
     max-width: 500px;
     text-align: center;
@@ -278,7 +283,10 @@ html {
 }
 
 #thank-you-popup .popup-content h2 {
-    margin-bottom: 20px;
+  font-family: 'Cursive', sans-serif;
+  color: #d81b60; /* Màu đỏ đậm */
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
 
 #thank-you-popup .thank-you-img {
@@ -316,3 +324,33 @@ html {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng cho ảnh */
 }
 
+
+/* Icon trái tim nhỏ */
+.heart-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('https://png.pngtree.com/png-vector/20220428/ourmid/pngtree-smooth-glossy-heart-vector-file-ai-and-png-png-image_4557871.png') no-repeat center/contain; /* Thay bằng link trái tim nhỏ */
+}
+
+/* Đặt icon trái tim nhỏ bay quanh */
+.heart-icon:nth-child(1) {
+  top: 40px;
+  left: 80px;
+}
+
+.heart-icon:nth-child(2) {
+  top: 40px;
+  right: 60px;
+}
+
+.celebration-image {
+  width: 50vw; /* Chiều rộng dựa trên viewport width */
+  max-width: 180px; /* Giới hạn chiều rộng tối đa */
+  height: auto; /* Tự điều chỉnh chiều cao theo tỷ lệ của ảnh */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  transform: translateX(-50%); /* Dịch tâm ảnh sang giữa */
+  z-index: 1; /* Đảm bảo ảnh nằm trên chữ */
+}

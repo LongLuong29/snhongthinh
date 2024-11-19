@@ -46,14 +46,15 @@ document.getElementById('confirm-time').addEventListener('click', function() {
     // Lấy thời gian đã chọn từ phần chọn thời gian
     const selectedTime = document.querySelector('#time').value;
     const selectedDate = document.querySelector('#date').value;
+    console.log(convertDateFormat(selectedDate))
 
     // Kiểm tra xem đã chọn ảnh và thời gian chưa
     if (selectedImageText && selectedTime && selectedDate) {
 
         // Cập nhật nội dung cho Popup Cảm ơn
-        document.getElementById('selected-content').textContent = `Bạn đã chọn: ${selectedImageText}`;
-        document.getElementById('selected-time').textContent = `Thời gian đã chọn: ${selectedTime} ngày ${selectedDate}`;
-        
+        document.getElementById('selected-content').textContent = 
+        `Hehe đã nhận thông tin, hẹn gặp HT ${selectedTime} ngày ${convertDateFormat(selectedDate)} nhaaa `;
+
         // Hiển thị popup cảm ơn
         thankYouPopup.style.display = 'flex';
 
@@ -61,29 +62,29 @@ document.getElementById('confirm-time').addEventListener('click', function() {
         sendEmail(selectedImageText, selectedTime, selectedDate);
 
     } else {
-        alert('Vui lòng chọn cả địa điểm và thời gian!');
+        alert('Phải chọn đủ thời gian địa điểm cơ');
     }
 });
 
 const thankYouPopup = document.getElementById('thank-you-popup');
 const closeThankYouPopupBtn = thankYouPopup.querySelector('.close-popup');
 
-// Popup thông báo cảm ơn khi xác nhận
-document.getElementById('confirm-time').addEventListener('click', function() {
-    const selectedTime = document.querySelector('#time-input').value;
-    const selectedImageText = document.querySelector('.section.selected h3') ? document.querySelector('.section.selected h3').textContent : '';
+// // Popup thông báo cảm ơn khi xác nhận
+// document.getElementById('confirm-time').addEventListener('click', function() {
+//     const selectedTime = document.querySelector('#time-input').value;
+//     const selectedImageText = document.querySelector('.section.selected h3') ? document.querySelector('.section.selected h3').textContent : '';
     
-    if (selectedImageText && selectedTime) {
-        // Cập nhật nội dung cho Popup Cảm ơn
-        document.getElementById('selected-content').textContent = `Bạn đã chọn: ${selectedImageText}`;
-        document.getElementById('selected-time').textContent = `Thời gian đã chọn: ${selectedTime}`;
+//     if (selectedImageText && selectedTime) {
+//         // Cập nhật nội dung cho Popup Cảm ơn
+//         document.getElementById('selected-content').textContent = `Bạn đã chọn: ${selectedImageText}`;
+//         document.getElementById('selected-time').textContent = `Thời gian đã chọn: ${selectedTime}`;
         
-        // Hiển thị popup cảm ơn
-        thankYouPopup.style.display = 'flex';
-    } else {
-        alert('Vui lòng chọn cả hình ảnh và thời gian!');
-    }
-});
+//         // Hiển thị popup cảm ơn
+//         thankYouPopup.style.display = 'flex';
+//     } else {
+//         alert('Vui lòng chọn cả hình ảnh và thời gian!');
+//     }
+// });
 
 // Đóng popup cảm ơn
 closeThankYouPopupBtn.addEventListener('click', () => {
@@ -126,5 +127,5 @@ function sendEmail(selectedImageText, selectedTime, selectedDate) {
 
 window.onload = function() {
   var audio = document.getElementById("background-music");
-  audio.volume = 0.05; // Chỉnh âm lượng xuống 70%
+  audio.volume = 0.5; // Chỉnh âm lượng xuống 70%
 };

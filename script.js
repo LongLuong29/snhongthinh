@@ -110,7 +110,7 @@ function convertDateFormat(date) {
 
 function sendEmail(selectedImageText, selectedTime, selectedDate) {
   const templateParams = {
-    to_email: "@gmail.com", // Thay bằng địa chỉ email của bạn
+    to_email: "longluong290901@gmail.com", // Thay bằng địa chỉ email của bạn
     subject: `Lựa chọn của bạn: ${selectedImageText}`,
     message: `${selectedImageText} vào lúc ${selectedTime} ngày ${selectedDate}`,
   };
